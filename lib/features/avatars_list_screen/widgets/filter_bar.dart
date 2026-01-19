@@ -20,16 +20,17 @@ class FilterBar extends StatelessWidget {
           onTap: onGenderTap,
           onClear: () => Get.find<AvatarFilterController>().clearFilter(FilterType.gender),
         ),
-        const SizedBox(width: 8),
+        const Spacer(flex: 8),
         _AgeFilterButton(
           onTap: onAgeTap,
           onClear: () => Get.find<AvatarFilterController>().clearFilter(FilterType.age),
         ),
-        const SizedBox(width: 8),
+        const Spacer(flex: 8),
         _PoseFilterButton(
           onTap: onPoseTap,
           onClear: () => Get.find<AvatarFilterController>().clearFilter(FilterType.pose),
         ),
+        const Spacer(flex: 106),
       ],
     );
   }
@@ -43,7 +44,8 @@ class _ClearAllFiltersButton extends StatelessWidget {
     final controller = Get.find<AvatarFilterController>();
 
     return Obx(() {
-      final hasActiveFilters = controller.selectedGenders.isNotEmpty ||
+      final hasActiveFilters =
+          controller.selectedGenders.isNotEmpty ||
           controller.selectedAgeRanges.isNotEmpty ||
           controller.selectedPoses.isNotEmpty;
 
